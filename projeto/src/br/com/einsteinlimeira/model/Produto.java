@@ -1,5 +1,14 @@
 package br.com.einsteinlimeira.model;
 
+/**
+ * Representação do atendente no sistema.
+ * 
+ * 
+ * @author Ricardo
+ */
+
+
+
 public class Produto {
 
 	private String nome;
