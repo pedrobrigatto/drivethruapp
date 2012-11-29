@@ -1,6 +1,6 @@
 package br.com.einsteinlimeira.controller;
 
-import br.com.einsteinlimeira.view.TelaCadastroAlimento;
+import br.com.einsteinlimeira.view.TelaCadastroAlimentos;
 
 public class ControladorCadastro {
 
@@ -12,7 +12,7 @@ public class ControladorCadastro {
 	 */
 	public static void main(String[] args) {
 		
-		TelaCadastroAlimento tela = new TelaCadastroAlimento();
+		TelaCadastroAlimentos tela = new TelaCadastroAlimentos();
 		
 	}
 

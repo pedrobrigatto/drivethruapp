@@ -4,7 +4,7 @@ package br.com.einsteinlimeira.model;
  * Representação do atendente no sistema.
  * 
  * 
- * @author Ricardo
+ * @author Ricardo - alterado pelo Will
  */
 
 
@@ -13,17 +13,19 @@ public class Produto {
 
 	private String nome;
 	private String codigo;
-	private String tipo;
-	private String marca;
+	private String qtde;
+/*	private String tipo;
+	private String marca;*/
 	
-	public Produto (String nome, String codigo, String tipo, String marca) {
+	public Produto (String nome, String codigo, String qtde /*String tipo, String marca*/) {
 		this.setNome(nome);
 		this.setCodigo(codigo);
-		this.setTipo(tipo);
-		this.setMarca(marca);
+		this.setQtde(qtde);
+/*		this.setTipo(tipo);
+		this.setMarca(marca); */
 }
 
-	public String getTipo() {
+	/*public String getTipo() {
 		return tipo;
 	}
 
@@ -37,7 +39,7 @@ public class Produto {
 
 	public void setMarca(String marca) {
 		this.marca = marca;
-	}
+	}*/
 
 	public String getCodigo() {
 		return codigo;
@@ -53,5 +55,13 @@ public class Produto {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+	
+	public String getQtde() {
+		return qtde;
+	}
+
+	public void setQtde(String qtde) {
+		this.qtde = qtde;
 	}
 }

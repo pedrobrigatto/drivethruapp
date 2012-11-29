@@ -1,6 +1,6 @@
 package br.com.einsteinlimeira.view;
 
-// @ Criado por Wesley Risso
+// @ Criado por Wesley Risso - Parte de BD: Will
 
 import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
@@ -15,6 +15,10 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import br.com.einsteinlimeira.model.database.ProdutoDAO;
+import br.com.einsteinlimeira.model.database.UsuarioDAO;
+import br.com.einsteinlimeira.model.database.dados;
 
 public class TelaCadastroAlimentos extends JFrame implements ActionListener {
 	
@@ -150,8 +154,17 @@ public class TelaCadastroAlimentos extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent evento) {
 
 		if (evento.getSource() == btnInserir) {
-
+			//POR ENQUANTO TÁ GRAVANDO AQUI. PRECISA ALTERAR PRO PRODUTODAO
+			dados d = new dados();
+			d.conecta("127.0.0.1","projeto","root","");
+			
+			//Após a conexão com sucesso, ele pega os dados inseridos nos campos do form e envia pra função de inserir produto
+			d.insereProduto("produto",txtProduto.getText(),txtCodigoProduto.getText(),Qtde.getText());
+			
+			//Cadastrado com sucesso, então é mostrado a mensagem.
 			JOptionPane.showMessageDialog(this, "Produto cadastrado!!!");
+
+			//return new ProdutoDAO().cadastrarProduto(produto);
 
 		} else if (evento.getSource() == btnAlterar) {
 

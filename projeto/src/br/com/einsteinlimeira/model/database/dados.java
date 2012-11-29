@@ -28,6 +28,7 @@ public class dados {
 	        }
 	        return retorno;
 	    }
+	    
 	    public ResultSet consulta(String consulta)
 	    {
 	        ResultSet rs = null;
@@ -41,6 +42,54 @@ public class dados {
 	            System.err.println("Erro CONSULTA: " + e);
 	        }
 	        return rs;
+	    }
+	    
+	    public boolean insereUsuario (String tabela, String username, String senha)
+	    {
+	        boolean retorno=false;
+	        try{
+	            PreparedStatement stmt = (PreparedStatement) this.con.prepareStatement("insert into "+ tabela + "(usuario,senha) values ('"+username+"','"+senha+"');");
+	            stmt.execute();
+	            stmt.close();
+	            retorno=true;
+	        }
+	        catch (SQLException ex){
+	            retorno=false;
+	            System.err.println("Erro INSERT:" + ex);
+	        }
+	        return retorno;
+	    }
+	    
+	    public boolean insereProduto (String tabela, String nome, String codigo, String qtde)
+	    {
+	        boolean retorno=false;
+	        try{
+	            PreparedStatement stmt = (PreparedStatement) this.con.prepareStatement("insert into "+ tabela + "(nome,codigo,qtde) values ('"+nome+"','"+codigo+"','"+qtde+"');");
+	            stmt.execute();
+	            stmt.close();
+	            retorno=true;
+	        }
+	        catch (SQLException ex){
+	            retorno=false;
+	            System.err.println("Erro INSERT:" + ex);
+	        }
+	        return retorno;
+	    }
+	    
+	    public boolean inserePedido (String tabela, String nomeCliente, String codeCompra, String codeProduto, String qtd, String valor)
+	    {
+	        boolean retorno=false;
+	        try{
+	            PreparedStatement stmt = (PreparedStatement) this.con.prepareStatement("insert into "+ tabela + "(nomeCliente,codeCompra,codeProduto,qtd,valor) values ('"+nomeCliente+"','"+codeCompra+"','"+codeProduto+"','"+qtd+"','"+valor+"');");
+	            stmt.execute();
+	            stmt.close();
+	            retorno=true;
+	        }
+	        catch (SQLException ex){
+	            retorno=false;
+	            System.err.println("Erro INSERT:" + ex);
+	        }
+	        return retorno;
 	    }
 
 }
