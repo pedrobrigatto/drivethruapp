@@ -1,6 +1,11 @@
 package br.com.einsteinlimeira.model.database;
 
+import java.sql.ResultSet;
+
+import br.com.einsteinlimeira.TelaCadastroAlimento.Tela;
 import br.com.einsteinlimeira.model.Usuario;
+import br.com.einsteinlimeira.view.TelaCadastroAlimento;
+import br.com.einsteinlimeira.view.TelaLogin;
 
 /**
  * Classe que representa objetos de acesso a dados de usuário. Inicialmente, estamos considerando
@@ -11,36 +16,45 @@ import br.com.einsteinlimeira.model.Usuario;
  */
 public class UsuarioDAO {
 	
-	private Repositorio repositorio;
+	private dados dados;
 	
 	public UsuarioDAO () {
-		repositorio = new Repositorio();
+		dados = new dados();
+		dados.conecta("216.245.200.66","alphalab_projetowill","alphalab_grupo4","grupo4");
 	}
 	
 	public boolean validarUsuario(Usuario usuario) {
 		
 		Usuario usuarioAtual = null;
 		
-		String usernameBanco = null;
 		String usernameTela = null;
-		String senhaBanco = null;
 		String senhaTela = null;
 		
-		for (int posicao=0; posicao < repositorio.baixarTabelaUsuarios().size(); posicao++) {
-			
-			usuarioAtual = repositorio.baixarTabelaUsuarios().get(posicao);
-			
-			usernameBanco =usuarioAtual.getUsername();
-			usernameTela = usuario.getUsername();
-			
-			senhaBanco = usuarioAtual.getSenha();
-			senhaTela = usuario.getSenha();
-			
-			if (usernameBanco.equals(usernameTela) &&
-					senhaBanco.equals(senhaTela)) {
-				return true;
-			}
-		}
-		return false;
+		ResultSet rs = dados.consulta("SELECT * FROM usuarios WHERE usuario='"+usernameTela+"' and senha='"+senhaTela+"'");
+			  try
+			  {
+	            if (rs.next())
+	            {
+	                    Tela i = new Tela();
+	                    i.setVisible(true);
+	                    setVisible(false);
+	             }
+			  }
+			  catch(Exception e)
+			    {
+			        System.out.println("ERRO");
+			    }
+			return false;
+	}
+
+
+	private void setVisible(boolean b) {
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new TelaLogin().setVisible(true);
+            }
+        });
+		
 	}
 }
+
