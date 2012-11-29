@@ -1,4 +1,4 @@
-package br.com.einsteinlimeira.TelaCadastroAlimento;
+package br.com.einsteinlimeira.view;
 
 // @ Criado por Wesley Risso
 
@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class Tela extends JFrame implements ActionListener {
+public class TelaCadastroAlimentos extends JFrame implements ActionListener {
 	
 	private static final long serialVersionUID = -2327113851583573335L;
 	
@@ -38,7 +38,7 @@ public class Tela extends JFrame implements ActionListener {
 
 	//Criação da tela
 
-	public Tela() {
+	public TelaCadastroAlimentos() {
 		montarTela();
 	}
 
@@ -181,7 +181,7 @@ public class Tela extends JFrame implements ActionListener {
 	}
 	
 	public static void main (String [] args) {
-		Tela tela = new Tela();
+		TelaCadastroAlimentos tela = new TelaCadastroAlimentos();
 		tela.setVisible(true);
 	}
 }

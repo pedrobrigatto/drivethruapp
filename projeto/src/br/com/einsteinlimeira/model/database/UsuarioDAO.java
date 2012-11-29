@@ -2,9 +2,9 @@ package br.com.einsteinlimeira.model.database;
 
 import java.sql.ResultSet;
 
-import br.com.einsteinlimeira.TelaCadastroAlimento.Tela;
 import br.com.einsteinlimeira.model.Usuario;
-import br.com.einsteinlimeira.view.TelaCadastroAlimento;
+import br.com.einsteinlimeira.view.TelaCadastroAlimentos;
+import br.com.einsteinlimeira.view.TelaCadastroAlimentos;
 import br.com.einsteinlimeira.view.TelaLogin;
 
 /**
@@ -20,7 +20,7 @@ public class UsuarioDAO {
 	
 	public UsuarioDAO () {
 		dados = new dados();
-		dados.conecta("216.245.200.66","alphalab_projetowill","alphalab_grupo4","grupo4");
+		dados.conecta("127.0.0.1","projeto","root","");
 	}
 	
 	public boolean validarUsuario(Usuario usuario) {
@@ -35,7 +35,7 @@ public class UsuarioDAO {
 			  {
 	            if (rs.next())
 	            {
-	                    Tela i = new Tela();
+	                    TelaCadastroAlimentos i = new TelaCadastroAlimentos();
 	                    i.setVisible(true);
 	                    setVisible(false);
 	             }
