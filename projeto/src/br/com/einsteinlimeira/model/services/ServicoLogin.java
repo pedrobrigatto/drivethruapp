@@ -5,7 +5,7 @@ import br.com.einsteinlimeira.model.database.UsuarioDAO;
 
 /**
  * Representa o serviço de login
- * @author Will
+ * @author WillOliverio
  */
 
 public class ServicoLogin {

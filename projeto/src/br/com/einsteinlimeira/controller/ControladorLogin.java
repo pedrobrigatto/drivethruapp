@@ -6,7 +6,7 @@ import br.com.einsteinlimeira.view.TelaLogin;
 /**
  * Representa o controlador de operações relacionadas a login/logoff de usuário.
  * 
- * @author Will
+ * @author WillOliverio
  */
 public class ControladorLogin {
 
