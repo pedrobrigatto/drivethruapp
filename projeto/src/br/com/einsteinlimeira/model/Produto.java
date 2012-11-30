@@ -4,7 +4,7 @@ package br.com.einsteinlimeira.model;
  * Representação do atendente no sistema.
  * 
  * 
- * @author Ricardo - alterado pelo Will
+ * @author
  */
 
 
