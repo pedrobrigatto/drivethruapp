@@ -8,11 +8,9 @@ import br.com.einsteinlimeira.view.TelaCadastroAlimentos;
 import br.com.einsteinlimeira.view.TelaLogin;
 
 /**
- * Classe que representa objetos de acesso a dados de usuário. Inicialmente, estamos considerando
- * que a aplicação não tem um banco de dados associado, e as informações estão todas em memória,
- * em uma lista mantida em uma classe que representa o repositório de dados. 
+ * Classe que representa objetos de acesso a dados de usuário. 
  * 
- * @author WillOliverio
+ * @author Will
  */
 public class UsuarioDAO {
 	

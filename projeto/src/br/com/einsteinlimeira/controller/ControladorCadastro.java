@@ -11,7 +11,7 @@ public class ControladorCadastro {
 	 * @author WesleyRisso
 	 */
 	public static void main(String[] args) {
-		
+		//Chama a tela de cadastro de alimentos
 		TelaCadastroAlimentos tela = new TelaCadastroAlimentos();
 		
 	}
