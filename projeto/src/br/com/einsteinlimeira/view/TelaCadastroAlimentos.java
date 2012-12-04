@@ -164,8 +164,6 @@ public class TelaCadastroAlimentos extends JFrame implements ActionListener {
 			//Cadastrado com sucesso, então é mostrado a mensagem.
 			JOptionPane.showMessageDialog(this, "Produto cadastrado!!!");
 
-			//return new ProdutoDAO().cadastrarProduto(produto);
-
 		} else if (evento.getSource() == btnAlterar) {
 
 			JOptionPane.showMessageDialog(this, "Produto Alterado!!!");

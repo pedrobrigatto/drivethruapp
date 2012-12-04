@@ -21,7 +21,7 @@ public class UsuarioDAO {
 		dados.conecta("127.0.0.1","projeto","root","");
 	}
 	
-	public boolean validarUsuario(Usuario usuario) {
+	/*public boolean validarUsuario(Usuario usuario) {
 		
 		Usuario usuarioAtual = null;
 		
@@ -43,7 +43,7 @@ public class UsuarioDAO {
 			        System.out.println("ERRO");
 			    }
 			return false;
-	}
+	}*/
 
 
 	private void setVisible(boolean b) {

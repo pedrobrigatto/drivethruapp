@@ -3,6 +3,7 @@ package br.com.einsteinlimeira.view;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -12,6 +13,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import br.com.einsteinlimeira.controller.ControladorLogin;
+import br.com.einsteinlimeira.model.database.dados;
 
 /**
  * Tela de login.
@@ -83,16 +85,67 @@ public class TelaLogin extends JFrame implements ActionListener {
 				// Avisa o usuário
 				JOptionPane.showMessageDialog(this, "Preencha os dados e tente novamente");
 			} else {
-				boolean existe = ControladorLogin.pegarControlador().
-				    verificarUsuario(txtUsername.getText(), 
-				    		new String(pwdUsuario.getPassword()));
+			    //Conecta no Banco de Dados
+				dados d = new dados();
+			    d.conecta("127.0.0.1","projeto","root","");
+			    
+			    //Efetua a pesquisa no banco de dados		    
+			    ResultSet rs = d.consulta("usuario",txtUsername.getText(),pwdUsuario.getPassword());
+			       try
+			        {
+			            if (rs.next())
+			            {
+			                   TelaCadastroAlimentos i = new TelaCadastroAlimentos();
+			                    i.setVisible(true);
+			                    setVisible(false);
+			                }
+			            
+			            
+			            else
+			            	JOptionPane.showMessageDialog(this, "Usuário e/ou senha inválidos!!");
+			            }
+
+			            catch(Exception e)
+			            {
+			                System.out.println("ERRO");
+			            }
+
+			    }                                     
+
+				/*boolean existe = ControladorLogin.pegarControlador().
+						//CONECTA COM O BANCO DE DADOS
+						dados d = new dados();
+						d.conecta("127.0.0.1","projeto","root","");
+						
+						ResultSet rs = d.consulta("usuario",txtUsername.getText(),pwdUsuario.getPassword());
+					    
+					       try
+					        {
+					            if (rs.next())
+					            {
+					                    TelaCadastroAlimentos tela = new TelaCadastroAlimentos();
+					                    tela.setVisible(true);
+					                    //setVisible(false);
+					                }
+						
+				    //verificarUsuario(txtUsername.getText(), 
+				    		//new String(pwdUsuario.getPassword()));
 				
-				if (existe) {
-					JOptionPane.showMessageDialog(this, "Abriria a tela home, próxima aula!!");
-				} else {
+				/*if (existe) {
+					//JOptionPane.showMessageDialog(this, "Abriria a tela home, próxima aula!!");
+						TelaCadastroAlimentos tela = new TelaCadastroAlimentos();
+						tela.setVisible(true);
+						TelaLogin.setVisible(false);
+					}
+				 else {
 					JOptionPane.showMessageDialog(this, "Usuário inválido!! ");
 				}
-			}
+					        }
+					        catch (Exception e)
+					        {
+					            System.err.println("Erro CONSULTA: " + e);
+					        }*/
+			
 			
 		} else if ("Limpar".equals(evento.getActionCommand())) {
 			 

@@ -19,10 +19,10 @@ public class ControladorLogin {
 		return controlador;
 	}
 
-	public boolean verificarUsuario(String username, String senha) {
+	/*public boolean verificarUsuario(String username, String senha) {
 		ServicoLogin servico = new ServicoLogin();
 		return servico.validarUsuario(username, senha);
-	}
+	}*/
 
 	public void iniciar() {
 		telaLogin = new TelaLogin();

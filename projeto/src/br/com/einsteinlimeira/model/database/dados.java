@@ -36,12 +36,16 @@ public class dados {
 	        return retorno;
 	    }
 	    
-	    public ResultSet consulta(String consulta)
+	    //FUnção responsável por buscar usuário no BD.
+	    public ResultSet consulta(String tabela, String usuario, char[] senha)
 	    {
 	        ResultSet rs = null;
+	        
+	        String password = String.valueOf(senha);  
+	        
 	        try
 	        {
-	            PreparedStatement stmt = (PreparedStatement) this.con.prepareStatement(consulta);
+	            PreparedStatement stmt = (PreparedStatement) this.con.prepareStatement("SELECT * FROM usuarios WHERE usuario='"+usuario+"' AND senha='"+password+"'");
 	            rs = stmt.executeQuery();
 	        }
 	        catch (Exception e)
